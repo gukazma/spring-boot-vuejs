@@ -1,10 +1,16 @@
 <template>
-  <button class="Search__button" @click="callRestService">
+  <button class="btn btn-primary" @click="callRestService">
     CALL Spring Boot REST backend service
   </button>
-
+  <div class="wrapper">
+      <nav>
+        <RouterLink to="/">Home</RouterLink>
+        <RouterLink to="/about">About</RouterLink>
+      </nav>
+    </div>
   <h3>{{ responseMessage }}</h3>
-
+  <RouterView />
+  
   <!-- 可选：显示错误信息 -->
   <!-- <div v-if="errors.length" class="error">
     <p v-for="(error, index) in errors" :key="index">
@@ -16,6 +22,7 @@
 <script setup>
 import { ref } from 'vue'
 import axios from 'axios'
+import * as bootstrap from 'bootstrap'
 
 // 响应式状态
 const responseMessage = ref('')
@@ -35,19 +42,6 @@ const callRestService = async () => {
 </script>
 
 <style scoped>
-.Search__button {
-  padding: 8px 16px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.Search__button:hover {
-  background-color: #0056b3;
-}
-
 .error {
   color: red;
   margin-top: 16px;
