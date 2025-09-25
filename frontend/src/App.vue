@@ -25,7 +25,7 @@ const errors = ref([])
 const callRestService = async () => {
   errors.value = [] // 清空之前的错误
   try {
-    const response = await axios.get('http://localhost:8080/hello')
+    const response = await axios.get('hello')
     responseMessage.value = response.data // 自动响应式更新
   } catch (e) {
     errors.value.push(e)
